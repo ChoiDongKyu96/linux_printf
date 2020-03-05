@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 17:53:09 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/05 23:38:47 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/06 04:17:23 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_init_tab(t_tag *tag)
 void	ft_memset_tab(t_tag *tag)
 {
 	ft_memset(tag->c_flags, 0, sizeof(tag->c_flags));
+	ft_memset(tag->c_swidth, 0, sizeof(tag->c_swidth));
 	tag->precision = -1;
 	tag->width = 0;
 }

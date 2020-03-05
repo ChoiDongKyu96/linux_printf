@@ -6,17 +6,11 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 01:13:39 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/05 23:45:49 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/06 04:13:45 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_what_spcf(t_tag *tag, va_list *ap, unsigned int spc)
-{
-	if (spc == 3)
-		ft_show_d(tag, (int)va_arg(*ap, int));
-}
 
 void	ft_parse_flag(t_tag *tag)
 {
