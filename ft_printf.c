@@ -6,14 +6,14 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 17:53:09 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/06 04:17:23 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/07 17:02:45 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-void	ft_init_tab(t_tag *tag)
+static void	ft_init_tab(t_tag *tag)
 {
 	tag->specifiers = "cspdiuxX%nfge";
 	tag->flags = "-0# +";
@@ -21,7 +21,7 @@ void	ft_init_tab(t_tag *tag)
 
 }
 
-void	ft_memset_tab(t_tag *tag)
+static void	ft_memset_tab(t_tag *tag)
 {
 	ft_memset(tag->c_flags, 0, sizeof(tag->c_flags));
 	ft_memset(tag->c_swidth, 0, sizeof(tag->c_swidth));
@@ -50,7 +50,8 @@ int		ft_printf(const char *format, ...)
 			write(1, tag.cur_ptr, 1);
 			tag.size++;
 		}
-		tag.cur_ptr++;
+		if (*(tag.cur_ptr) != '\0')
+			tag.cur_ptr++;
 	}
 	va_end(ap);
 	return (tag.size);

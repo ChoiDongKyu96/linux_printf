@@ -6,15 +6,14 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 04:13:38 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/06 04:48:05 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/07 18:38:55 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_is_spcf_width(t_tag *tag)
+static void	ft_is_spcf_width(t_tag *tag)
 {
-
 	if (*(tag->cur_ptr - 1) == 'h')
 	{
 		tag->c_swidth[0] = 'h';
@@ -27,12 +26,26 @@ void	ft_is_spcf_width(t_tag *tag)
 		if (*(tag->cur_ptr - 2) == 'l')
 			tag->c_swidth[3] = 'l';
 	}
-
 }
 
 void	ft_what_spcf(t_tag *tag, va_list *ap, unsigned int spc)
 {
 	ft_is_spcf_width(tag);
-	if (spc == 3 || spc == 4)
+	if (spc == 0)
+		ft_show_c(tag, ap);
+	else if (spc == 1)
+		ft_show_s(tag, ap);
+	else if (spc == 2)
+		ft_show_p(tag, ap);
+	else if (spc == 3 || spc == 4)
 		ft_show_d(tag, ap);
+	else if (spc == 5)
+		ft_show_u(tag, ap);
+	else if (spc == 6 || spc == 7)
+		ft_show_xX(tag, ap);
+	else if (spc == 8)
+	{
+		write(1, "%", 1);
+		tag->size++;
+	}
 }

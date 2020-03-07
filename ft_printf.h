@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:21:06 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/06 04:48:16 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/07 20:40:28 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <wchar.h>
 
 typedef struct	s_tag
 {
@@ -33,9 +34,20 @@ int		ft_printf(const char *format, ...);
 void	ft_what_spcf(t_tag *tag, va_list *ap, unsigned int spc);
 void	ft_parse_tab(t_tag *tag, va_list *ap);
 void	ft_show_d(t_tag *tag, va_list *ap);
-void	ft_putint_std(int n);
 void	ft_putuint_std(unsigned int n);
 void	ft_putull_std(unsigned long long n);
-void	ft_putll_std(long long n);
+int		ft_custom_size(long long value, long long base);
+void	ft_show_c(t_tag *tag, va_list *ap);
+void	ft_show_s(t_tag *tag, va_list *ap);
+void	ft_show_u(t_tag *tag, va_list *ap);
+void	ft_show_xX(t_tag *tag, va_list *ap);
+void	ft_show_p(t_tag *tag, va_list *ap);
+void	ft_putbasell_std(unsigned long long n,
+ const char *base, unsigned long long n_base);
+void	ft_putbasei_std(unsigned int n, const char *base,
+ unsigned int n_base);
+void	ft_show_plusorspace(t_tag *tag, long long value);
+void	ft_show_hash(t_tag *tag);
+int		ft_custom_str_size(t_tag *tag, wchar_t *str);
 
 #endif
