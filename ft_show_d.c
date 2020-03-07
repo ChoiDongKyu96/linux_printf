@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 04:19:40 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 17:03:50 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 02:59:09 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 static void	ft_show_d_whatput(t_tag *tag, long long value)
 {
 	value > 0 ? (value) : (value *= -1);
+
 	if (tag->c_swidth[1] == 'h')
-		ft_putuint_std((char)value);
+		ft_putuint_std((int)value);
 	else if (tag->c_swidth[0] == 'h')
-		ft_putuint_std((short int)value);
+		ft_putuint_std((int)value);
 	else if (tag->c_swidth[3] == 'l')
-		ft_putull_std((long long)value);
+		ft_putull_std(value);
 	else if (tag->c_swidth[2] == 'l')
-		ft_putull_std((long int)value);
+		ft_putull_std(value);
 	else
 		ft_putuint_std((int)value);
 }
@@ -32,9 +33,12 @@ static void	ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
 	if (tag->c_flags[0] == '-')
 	{
 		ft_show_plusorspace(tag, value);
+		if (tag->precision == 0 && value == 0)
+			write(1, " ", 1);
 		while (n_z--)
 			write(1, "0", 1);
-		ft_show_d_whatput(tag, value);
+		if (tag->precision != 0 || value != 0)
+			ft_show_d_whatput(tag, value);
 		while (n_s--)
 			write(1, " ", 1);
 	}
@@ -42,10 +46,13 @@ static void	ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
 	{
 		while (n_s--)
 			write(1, " ", 1);
+		if (tag->precision == 0 && value == 0)
+			write(1, " ", 1);
 		ft_show_plusorspace(tag, value);
 		while (n_z--)
 			write(1, "0", 1);
-		ft_show_d_whatput(tag, value);
+		if (tag->precision != 0 || value != 0)
+			ft_show_d_whatput(tag, value);
 	}
 }
 
@@ -112,6 +119,8 @@ void	ft_show_d(t_tag *tag, va_list *ap)
 	if (tag->width <= size && tag->precision <= size)
 	{
 		ft_show_plusorspace(tag, value);
+		if (tag->precision == 0 && value == 0)
+			return ;
 		ft_show_d_whatput(tag, value);
 	}
 	else

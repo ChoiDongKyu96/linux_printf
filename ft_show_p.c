@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:42:22 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 17:54:28 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 03:16:54 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_show_p_width(t_tag *tag, unsigned long int value,
 {
 	if (tag->c_flags[0] == '-')
 	{
-		ft_show_hash(tag);
+		ft_show_hash(tag, value);
 		while (n_z--)
 			write(1, "0", 1);
 		ft_show_p_whatput(tag, value);
@@ -37,7 +37,7 @@ static void	ft_show_p_width(t_tag *tag, unsigned long int value,
 	{
 		while (n_s--)
 			write(1, " ", 1);
-		ft_show_hash(tag);
+		ft_show_hash(tag, value);
 		while (n_z--)
 			write(1, "0", 1);
 		ft_show_p_whatput(tag, value);
@@ -89,12 +89,18 @@ void	ft_show_p(t_tag *tag, va_list *ap)
 
 	cal = 0;
 	value = ft_show_p_value(tag, ap);
+	if (value == 0)
+	{
+		write(1, "(nil)", 5);
+		tag->size += 5;
+		return ;
+	}
 	size = ft_custom_size(value, 16);
 		size += 2;
 		cal += 2;;
 	if (tag->width <= size && tag->precision <= size)
 	{
-		ft_show_hash(tag);
+		ft_show_hash(tag, value);
 		ft_show_p_whatput(tag, value);
 	}
 	else

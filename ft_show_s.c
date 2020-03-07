@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:58:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 20:58:32 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 03:52:20 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,19 @@ static void	*ft_show_s_str(t_tag *tag, va_list *ap)
 		str = (char*)va_arg(*ap, char*);
 	return (str);
 }
-#include <stdio.h>
+
 void			ft_show_s(t_tag *tag, va_list *ap)
 {
 	wchar_t	*str;
 	int 	size;
 
 	str = ft_show_s_str(tag, ap);
+	if (str == 0 && tag->precision < 6 && tag->precision != -1)
+		str = (wchar_t*)"\0";
+	else if (str == 0)
+		str = (wchar_t*)"(null)";
+	if (*((char*)str) == 0)
+		tag->precision = 0;
 	size = ft_custom_str_size(tag, str);
 	if (tag->width <= size)
 		ft_show_s_whatput(tag, str);

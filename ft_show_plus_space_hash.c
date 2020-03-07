@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:18:30 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 17:44:04 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 03:15:47 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	ft_show_plusorspace(t_tag *tag, long long value)
 		write(1, "-", 1);
 }
 
-void	ft_show_hash(t_tag *tag)
+void	ft_show_hash(t_tag *tag, long long value)
 {
+	if (value == 0)
+		return ;
 	if (tag->c_flags[2] == '#')
 	{
 		if (*(tag->cur_ptr) == 'x')

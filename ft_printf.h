@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:21:06 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 20:40:28 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 03:14:45 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putbasell_std(unsigned long long n,
 void	ft_putbasei_std(unsigned int n, const char *base,
  unsigned int n_base);
 void	ft_show_plusorspace(t_tag *tag, long long value);
-void	ft_show_hash(t_tag *tag);
+void	ft_show_hash(t_tag *tag, long long value);
 int		ft_custom_str_size(t_tag *tag, wchar_t *str);
 
 #endif

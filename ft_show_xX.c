@@ -36,10 +36,13 @@ static void	ft_show_xX_width(t_tag *tag, unsigned long long value,
 {
 	if (tag->c_flags[0] == '-')
 	{
-		ft_show_hash(tag);
+		ft_show_hash(tag, value);
 		while (n_z--)
 			write(1, "0", 1);
-		ft_show_xX_whatput(tag, value);
+		if (tag->precision == 0 && value == 0)
+			write(1, " ", 1);
+		else
+			ft_show_xX_whatput(tag, value);
 		while (n_s--)
 			write(1, " ", 1);
 	}
@@ -47,10 +50,13 @@ static void	ft_show_xX_width(t_tag *tag, unsigned long long value,
 	{
 		while (n_s--)
 			write(1, " ", 1);
-		ft_show_hash(tag);
+		ft_show_hash(tag, value);
 		while (n_z--)
 			write(1, "0", 1);
-		ft_show_xX_whatput(tag, value);
+		if (tag->precision == 0 && value == 0)
+			write(1, " ", 1);
+		else
+			ft_show_xX_whatput(tag, value);
 	}
 }
 
@@ -108,14 +114,16 @@ void	ft_show_xX(t_tag *tag, va_list *ap)
 	cal = 0;
 	value = ft_show_xX_value(tag, ap);
 	size = ft_custom_size(value, 16);
-	if (tag->c_flags[2] == '#')
+	if (tag->c_flags[2] == '#' && value != 0)
 	{
 		size += 2;
 		cal += 2;;
 	}
 	if (tag->width <= size && tag->precision <= size)
 	{
-		ft_show_hash(tag);
+		if (tag->precision == 0 && value == 0)
+			return ;
+		ft_show_hash(tag, value);
 		ft_show_xX_whatput(tag, value);
 	}
 	else

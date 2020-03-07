@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 03:57:25 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 02:23:59 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 02:50:38 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,12 @@ void	ft_show_u(t_tag *tag, va_list *ap)
 	value = ft_show_u_value(tag, ap);
 	size = ft_custom_size(value, 10);
 	if (tag->width <= size && tag->precision <= size)
-		ft_show_u_whatput(tag, value);
+	{
+		if (tag->precision == 0 && value == 0)
+			return ;
+		else
+			ft_show_u_whatput(tag, value);
+	}
 	else
 		ft_show_u_cal_zs(tag, value, size);
 	tag->size += size;
