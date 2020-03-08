@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:18:30 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 03:15:47 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 16:44:41 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_show_hash(t_tag *tag, long long value)
 			write(1, "0x", 2);
 		else if (*(tag->cur_ptr) == 'X')
 			write(1, "0X", 2);
+		else if (*(tag->cur_ptr) == 'o')
+			write(1, "0", 1);
 	}
 	else if (*(tag->cur_ptr) == 'p')
 		write(1, "0x", 2);

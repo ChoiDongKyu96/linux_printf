@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 17:53:09 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 02:30:59 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 16:54:24 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	ft_init_tab(t_tag *tag)
 {
-	tag->specifiers = "cspdiuxX%nfge";
+	tag->specifiers = "cspdiuxX%nfgeo";
 	tag->flags = "-0# +";
 	tag->size = 0;
 

@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:21:06 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 03:14:45 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/08 17:23:51 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	ft_show_c(t_tag *tag, va_list *ap);
 void	ft_show_s(t_tag *tag, va_list *ap);
 void	ft_show_u(t_tag *tag, va_list *ap);
 void	ft_show_xX(t_tag *tag, va_list *ap);
+void	ft_show_o(t_tag *tag, va_list *ap);
 void	ft_show_p(t_tag *tag, va_list *ap);
+void	ft_insert_n(t_tag *tag, va_list *ap);
 void	ft_putbasell_std(unsigned long long n,
  const char *base, unsigned long long n_base);
 void	ft_putbasei_std(unsigned int n, const char *base,
