@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:21:06 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 17:23:51 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/09 20:34:19 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <wchar.h>
+#include <stdint.h>
 
 typedef struct	s_tag
 {
@@ -51,5 +52,18 @@ void	ft_putbasei_std(unsigned int n, const char *base,
 void	ft_show_plusorspace(t_tag *tag, long long value);
 void	ft_show_hash(t_tag *tag, long long value);
 int		ft_custom_str_size(t_tag *tag, wchar_t *str);
+void	ft_show_wc(wint_t c, t_tag *tag);
+
+typedef union	u_double
+{
+	double value;
+
+	struct
+	{
+		uint64_t mantisa : 52;
+		uint64_t exponent : 11;
+		uint64_t sign : 1;
+	}	parts;
+}				t_udouble;
 
 #endif

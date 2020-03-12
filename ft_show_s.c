@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:58:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 03:52:20 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/09 19:34:48 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static void		ft_show_s_whatput(t_tag *tag, wchar_t *str)
 	{
 		if (tag->precision != -1)
 			while (str[i] && i < tag->precision)
-				write(1, &str[i++], 1);
+				ft_show_wc(str[i++], tag);
 		else
 			while (str[i])
-				write(1, &str[i++], 1);
+				ft_show_wc(str[i++], tag);
 	}
 	else
 	{
@@ -87,7 +87,7 @@ static void	*ft_show_s_str(t_tag *tag, va_list *ap)
 {
 	void *str;
 
-	if (tag->c_swidth[2] == 'l' )
+	if (tag->c_swidth[2] == 'l')
 		str = (wchar_t*)va_arg(*ap, wchar_t*);
 	else
 		str = (char*)va_arg(*ap, char*);
@@ -101,9 +101,9 @@ void			ft_show_s(t_tag *tag, va_list *ap)
 
 	str = ft_show_s_str(tag, ap);
 	if (str == 0 && tag->precision < 6 && tag->precision != -1)
-		str = (wchar_t*)"\0";
+		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"\0") : (str = (wchar_t*)"\0");
 	else if (str == 0)
-		str = (wchar_t*)"(null)";
+		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"(null)") : (str = (wchar_t*)"(null)");
 	if (*((char*)str) == 0)
 		tag->precision = 0;
 	size = ft_custom_str_size(tag, str);
@@ -111,5 +111,6 @@ void			ft_show_s(t_tag *tag, va_list *ap)
 		ft_show_s_whatput(tag, str);
 	else
 		ft_show_s_sal_zs(tag, str, size);
-	tag->size += size;
+	if (tag->c_swidth[2] != 'l')
+		tag->size += size;
 }

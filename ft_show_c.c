@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:47:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 02:20:43 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/09 19:38:38 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	ft_show_c_whatput(t_tag *tag, wint_t value)
 {
 	int	ivalue;
 
-	if (tag->c_swidth[3] == 'l')
-		write(1, &value ,1);
+	if (tag->c_swidth[2] == 'l')
+		ft_show_wc(value, tag);
 	else
 	{
 		ivalue = (int)value;
@@ -85,16 +85,10 @@ void	ft_show_c(t_tag *tag, va_list *ap)
 	wint_t value;
 
 	value = 	ft_show_c_value(tag, ap);
-	if (tag->c_swidth[2] == 'l' && (value > 127))
-	{
-		while(*(tag->cur_ptr))
-			tag->cur_ptr++;
-		tag->size = -1;
-		return ;
-	}
 	if (tag->width <= 1 && tag->precision <= 1)
 		ft_show_c_whatput(tag, value);
 	else
 		ft_show_c_cal_zs(tag, value, 1);
-	tag->size += 1;
+	if (tag->c_swidth[2] != 'l')
+		tag->size += 1;
 }

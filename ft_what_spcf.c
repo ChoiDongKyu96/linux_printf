@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 04:13:38 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 17:30:17 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/03/12 00:07:59 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void		ft_what_spcf(t_tag *tag, va_list *ap, unsigned int spc)
 	else if (spc == 8)
 		ft_show_per(tag);
 	else if (spc == 9)
+		ft_insert_n(tag, ap);
+	else if (spc == 10)
 		ft_insert_n(tag, ap);
 	else if (spc == 13)
 		ft_show_o(tag, ap);
