@@ -18,6 +18,7 @@ LIBFT = -L./lib/libft -lft
 
 all : $(NAME)
 $(NAME) : $(OBJ) libft
+	@echo "[$(NAME) >>> Add/Update $^\n]"
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
