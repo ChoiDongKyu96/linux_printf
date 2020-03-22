@@ -6,7 +6,7 @@
 #    By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/22 23:40:58 by dochoi            #+#    #+#              #
-#    Updated: 2020/03/23 00:47:14 by dochoi           ###   ########.fr        #
+#    Updated: 2020/03/23 01:05:37 by dochoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,6 @@ clean :
 	@rm -rf ./obj libft.a
 fclean :
 	@$(MAKE) -C ./lib/libft fclean
-	@rm -rf ./obj $(NAME)
+	@rm -rf ./obj $(NAME) libft.a
 re : fclean all
 .PHONY: all clean fclean re
