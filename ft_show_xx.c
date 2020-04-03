@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_show_xX.c                                       :+:      :+:    :+:   */
+/*   ft_show_xx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 15:15:42 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 21:15:13 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:23:18 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_xX_whatput(t_tag *tag, unsigned long long value)
+static void					ft_show_xx_whatput(t_tag *tag,
+		unsigned long long value)
 {
 	const char *base;
+
 	if (*(tag->cur_ptr) == 'x')
 		base = "0123456789abcdef";
 	else if (*(tag->cur_ptr) == 'X')
@@ -31,7 +33,7 @@ static void	ft_show_xX_whatput(t_tag *tag, unsigned long long value)
 		ft_putbasei_std((unsigned int)value, base, 16);
 }
 
-static void	ft_show_xX_width(t_tag *tag,
+static void					ft_show_xx_width(t_tag *tag,
 		unsigned long long value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
@@ -42,7 +44,7 @@ static void	ft_show_xX_width(t_tag *tag,
 		if (tag->precision == 0 && value == 0)
 			write(1, " ", 1);
 		else
-			ft_show_xX_whatput(tag, value);
+			ft_show_xx_whatput(tag, value);
 		while (n_s--)
 			write(1, " ", 1);
 	}
@@ -56,11 +58,11 @@ static void	ft_show_xX_width(t_tag *tag,
 		if (tag->precision == 0 && value == 0)
 			write(1, " ", 1);
 		else
-			ft_show_xX_whatput(tag, value);
+			ft_show_xx_whatput(tag, value);
 	}
 }
 
-static void					ft_show_xX_cal_zs(t_tag *tag,
+static void					ft_show_xx_cal_zs(t_tag *tag,
 		unsigned long long value, int size, int cal)
 {
 	int	n_z;
@@ -86,10 +88,10 @@ static void					ft_show_xX_cal_zs(t_tag *tag,
 		n_s = 0;
 	}
 	tag->size += (n_z + n_s);
-	ft_show_xX_width(tag, value, n_z, n_s);
+	ft_show_xx_width(tag, value, n_z, n_s);
 }
 
-static unsigned long long	ft_show_xX_value(t_tag *tag, va_list *ap)
+static unsigned long long	ft_show_xx_value(t_tag *tag, va_list *ap)
 {
 	unsigned long long	value;
 
@@ -106,14 +108,14 @@ static unsigned long long	ft_show_xX_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void						ft_show_xX(t_tag *tag, va_list *ap)
+void						ft_show_xx(t_tag *tag, va_list *ap)
 {
-	int			size;
+	int					size;
 	unsigned long long	value;
-	int			cal;
+	int					cal;
 
 	cal = 0;
-	value = ft_show_xX_value(tag, ap);
+	value = ft_show_xx_value(tag, ap);
 	size = ft_custom_size(value, 16);
 	if (tag->c_flags[2] == '#' && value != 0)
 	{
@@ -125,9 +127,9 @@ void						ft_show_xX(t_tag *tag, va_list *ap)
 		if (tag->precision == 0 && value == 0)
 			return ;
 		ft_show_hash(tag, value);
-		ft_show_xX_whatput(tag, value);
+		ft_show_xx_whatput(tag, value);
 	}
 	else
-		ft_show_xX_cal_zs(tag, value, size, cal);
+		ft_show_xx_cal_zs(tag, value, size, cal);
 	tag->size += size;
 }
