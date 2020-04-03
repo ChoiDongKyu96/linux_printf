@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 01:13:39 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 03:42:28 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:39:30 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_parse_width(t_tag *tag)
 	}
 }
 
-void	ft_parse_precision(t_tag *tag , va_list *ap)
+void	ft_parse_precision(t_tag *tag, va_list *ap)
 {
 	tag->cur_ptr++;
 	if (*(tag->cur_ptr) == '*')
@@ -46,7 +46,7 @@ void	ft_parse_precision(t_tag *tag , va_list *ap)
 		return ;
 	}
 	tag->precision = 0;
-		while (1)
+	while (1)
 	{
 		if (*(tag->cur_ptr) < '0' || *(tag->cur_ptr) > '9')
 			return ;

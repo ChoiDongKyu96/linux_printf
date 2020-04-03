@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 17:53:09 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/09 19:06:11 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:36:55 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	ft_init_tab(t_tag *tag)
 	tag->specifiers = "cspdiuxX%nfgeo";
 	tag->flags = "-0# +";
 	tag->size = 0;
-
 }
 
 static void	ft_memset_tab(t_tag *tag)
@@ -29,7 +28,7 @@ static void	ft_memset_tab(t_tag *tag)
 	tag->width = 0;
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list ap;
 	t_tag	tag;

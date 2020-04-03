@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 16:14:13 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 21:06:21 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:36:08 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int		ft_custom_size(long long value, long long base)
 	int	size;
 
 	size = 0;
-
 	if (value == 0)
 		return (1);
 	while (value != 0)
@@ -31,17 +30,17 @@ int		ft_custom_size(long long value, long long base)
 int		ft_custom_str_size(t_tag *tag, wchar_t *str)
 {
 	char	*cstr;
-	int 	size;
+	int		size;
 
 	size = 0;
-	if (tag->c_swidth[2] == 'l' )
+	if (tag->c_swidth[2] == 'l')
 	{
 		if (tag->precision != -1)
 			while (str[size] && size < tag->precision)
 				size++;
 		else
 			while (str[size])
-	 			size++;
+				size++;
 	}
 	else
 	{

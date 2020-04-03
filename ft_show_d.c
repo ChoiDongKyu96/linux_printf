@@ -6,16 +6,15 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 04:19:40 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/12 00:11:12 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:43:48 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_d_whatput(t_tag *tag, long long value)
+static void			ft_show_d_whatput(t_tag *tag, long long value)
 {
 	value > 0 ? (value) : (value *= -1);
-
 	if (tag->c_swidth[1] == 'h')
 		ft_putuint_std((int)value);
 	else if (tag->c_swidth[0] == 'h')
@@ -28,7 +27,7 @@ static void	ft_show_d_whatput(t_tag *tag, long long value)
 		ft_putuint_std((int)value);
 }
 
-static void	ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
+static void			ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -56,7 +55,7 @@ static void	ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
 	}
 }
 
-static void	ft_show_d_cal_zs(t_tag *tag, long long value, int size, int cal)
+static void			ft_show_d_cal_zs(t_tag *tag, long long value, int size, int cal)
 {
 	int	n_z;
 	int	n_s;
@@ -65,7 +64,7 @@ static void	ft_show_d_cal_zs(t_tag *tag, long long value, int size, int cal)
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size + cal;
 	else if (tag->width > tag->precision)
 	{
@@ -101,7 +100,7 @@ static long long	ft_show_d_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void	ft_show_d(t_tag *tag, va_list *ap)
+void				ft_show_d(t_tag *tag, va_list *ap)
 {
 	int			size;
 	long long	value;
@@ -111,7 +110,7 @@ void	ft_show_d(t_tag *tag, va_list *ap)
 	value = ft_show_d_value(tag, ap);
 	size = ft_custom_size(value, 10);
 	if ((tag->c_flags[4] == '+' && value >= 0) ||
-	(tag->c_flags[3] ==' ' && value >= 0) || value < 0)
+	(tag->c_flags[3] == ' ' && value >= 0) || value < 0)
 	{
 		size++;
 		cal++;

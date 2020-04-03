@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 16:18:30 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 16:44:41 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:40:53 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_show_plusorspace(t_tag *tag, long long value)
 {
 	if (tag->c_flags[4] == '+' && value >= 0)
 		write(1, "+", 1);
-	else if (tag->c_flags[3] ==' ' && value >= 0)
+	else if (tag->c_flags[3] == ' ' && value >= 0)
 		write(1, " ", 1);
 	else if (value < 0)
 		write(1, "-", 1);

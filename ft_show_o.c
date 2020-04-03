@@ -6,13 +6,13 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 16:41:52 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 16:44:51 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:46:21 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_o_whatput(t_tag *tag, unsigned long long value)
+static void					ft_show_o_whatput(t_tag *tag, unsigned long long value)
 {
 	const char *base;
 
@@ -29,8 +29,8 @@ static void	ft_show_o_whatput(t_tag *tag, unsigned long long value)
 		ft_putbasei_std((unsigned int)value, base, 8);
 }
 
-static void	ft_show_o_width(t_tag *tag, unsigned long long value,
- int n_z, int n_s)
+static void					ft_show_o_width(t_tag *tag, unsigned long long value,
+		int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -58,7 +58,8 @@ static void	ft_show_o_width(t_tag *tag, unsigned long long value,
 	}
 }
 
-static void	ft_show_o_cal_zs(t_tag *tag, unsigned long long value, int size, int cal)
+static void					ft_show_o_cal_zs(t_tag *tag, unsigned long long value,
+		int size, int cal)
 {
 	int	n_z;
 	int	n_s;
@@ -67,7 +68,7 @@ static void	ft_show_o_cal_zs(t_tag *tag, unsigned long long value, int size, int
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size + cal;
 	else if (tag->width > tag->precision)
 	{
@@ -103,7 +104,7 @@ static unsigned long long	ft_show_o_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void	ft_show_o(t_tag *tag, va_list *ap)
+void						ft_show_o(t_tag *tag, va_list *ap)
 {
 	int			size;
 	unsigned long long	value;
@@ -115,7 +116,7 @@ void	ft_show_o(t_tag *tag, va_list *ap)
 	if (tag->c_flags[2] == '#' && value != 0)
 	{
 		size += 1;
-		cal += 1;;
+		cal += 1;
 	}
 	if (tag->width <= size && tag->precision <= size)
 	{

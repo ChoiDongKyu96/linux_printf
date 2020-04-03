@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 03:46:01 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 17:03:05 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:37:23 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_putuint_dfs_out(unsigned int n)
 	write(1, &c, 1);
 }
 
-void	ft_putuint_std(unsigned int n)
+void		ft_putuint_std(unsigned int n)
 {
 	if (n == 0)
 		write(1, "0", 1);
@@ -42,7 +42,7 @@ static void	ft_putull_dfs_out(unsigned long long n)
 	write(1, &c, 1);
 }
 
-void	ft_putull_std(unsigned long long n)
+void		ft_putull_std(unsigned long long n)
 {
 	if (n == 0)
 		write(1, "0", 1);

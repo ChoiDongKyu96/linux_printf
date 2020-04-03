@@ -6,13 +6,13 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:47:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/09 19:38:38 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:40:32 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_c_whatput(t_tag *tag, wint_t value)
+static void		ft_show_c_whatput(t_tag *tag, wint_t value)
 {
 	int	ivalue;
 
@@ -21,11 +21,11 @@ static void	ft_show_c_whatput(t_tag *tag, wint_t value)
 	else
 	{
 		ivalue = (int)value;
-		write(1, &ivalue ,1);
+		write(1, &ivalue , 1);
 	}
 }
 
-static void	ft_show_c_width(t_tag *tag, wint_t value, int n_z, int n_s)
+static void		ft_show_c_width(t_tag *tag, wint_t value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -45,7 +45,7 @@ static void	ft_show_c_width(t_tag *tag, wint_t value, int n_z, int n_s)
 	}
 }
 
-static void	ft_show_c_cal_zs(t_tag *tag, wint_t value, int size)
+static void		ft_show_c_cal_zs(t_tag *tag, wint_t value, int size)
 {
 	int	n_z;
 	int	n_s;
@@ -54,7 +54,7 @@ static void	ft_show_c_cal_zs(t_tag *tag, wint_t value, int size)
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size;
 	else if (tag->width > tag->precision)
 	{
@@ -73,18 +73,18 @@ static wint_t	ft_show_c_value(t_tag *tag, va_list *ap)
 {
 	wint_t value;
 
-	if (tag->c_swidth[2] == 'l' )
+	if (tag->c_swidth[2] == 'l')
 		value = (wint_t)va_arg(*ap, wint_t);
 	else
 		value = (int)va_arg(*ap, int);
 	return (value);
 }
 
-void	ft_show_c(t_tag *tag, va_list *ap)
+void			ft_show_c(t_tag *tag, va_list *ap)
 {
 	wint_t value;
 
-	value = 	ft_show_c_value(tag, ap);
+	value = ft_show_c_value(tag, ap);
 	if (tag->width <= 1 && tag->precision <= 1)
 		ft_show_c_whatput(tag, value);
 	else

@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:42:22 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 03:16:54 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:42:45 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_show_p_whatput(t_tag *tag, unsigned long int value)
 }
 
 static void	ft_show_p_width(t_tag *tag, unsigned long int value,
- int n_z, int n_s)
+		int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -44,7 +44,8 @@ static void	ft_show_p_width(t_tag *tag, unsigned long int value,
 	}
 }
 
-static void	ft_show_p_cal_zs(t_tag *tag, unsigned long int value, int size, int cal)
+static void					ft_show_p_cal_zs(t_tag *tag, unsigned long int value,
+		int size, int cal)
 {
 	int	n_z;
 	int	n_s;
@@ -53,7 +54,7 @@ static void	ft_show_p_cal_zs(t_tag *tag, unsigned long int value, int size, int 
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size + cal;
 	else if (tag->width > tag->precision)
 	{
@@ -81,7 +82,7 @@ static unsigned long int	ft_show_p_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void	ft_show_p(t_tag *tag, va_list *ap)
+void						ft_show_p(t_tag *tag, va_list *ap)
 {
 	int			size;
 	unsigned long int	value;
@@ -96,8 +97,8 @@ void	ft_show_p(t_tag *tag, va_list *ap)
 		return ;
 	}
 	size = ft_custom_size(value, 16);
-		size += 2;
-		cal += 2;;
+	size += 2;
+	cal += 2;
 	if (tag->width <= size && tag->precision <= size)
 	{
 		ft_show_hash(tag, value);
