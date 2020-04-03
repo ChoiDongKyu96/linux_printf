@@ -49,15 +49,15 @@ $(NAME) : $(OBJ) libft.a
 	@echo "complete\n"
 
 libft.a :
-	@$(MAKE) -C ./lib/libft bonus
-	@for i in $(LIB_OBJ_NAME); do cp ./lib/libft/$$i ./$(OBJ_PATH); done
-	cp ./lib/libft/$@ ./
+	@$(MAKE) -C ./libft bonus
+	@for i in $(LIB_OBJ_NAME); do cp ./libft/$$i ./$(OBJ_PATH); done
+	cp ./libft/$@ ./
 	@echo "moved lib's objfile\n"
 clean :
-	@$(MAKE) -C ./lib/libft clean
+	@$(MAKE) -C ./libft clean
 	@rm -rf ./obj libft.a
 fclean :
-	@$(MAKE) -C ./lib/libft fclean
+	@$(MAKE) -C ./libft fclean
 	@rm -rf ./obj $(NAME) libft.a
 re : fclean all
 .PHONY: all clean fclean re
