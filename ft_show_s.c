@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:58:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/09 19:34:48 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:08:33 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		ft_show_s_whatput(t_tag *tag, wchar_t *str)
 	char	*cstr;
 
 	i = 0;
-	if (tag->c_swidth[2] == 'l' )
+	if (tag->c_swidth[2] == 'l')
 	{
 		if (tag->precision != -1)
 			while (str[i] && i < tag->precision)
@@ -68,7 +68,7 @@ static void		ft_show_s_sal_zs(t_tag *tag, wchar_t *str, int size)
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size;
 	else if (tag->width > tag->precision)
 	{
@@ -83,7 +83,7 @@ static void		ft_show_s_sal_zs(t_tag *tag, wchar_t *str, int size)
 	ft_show_s_width(tag, str, n_z, n_s);
 }
 
-static void	*ft_show_s_str(t_tag *tag, va_list *ap)
+static void		*ft_show_s_str(t_tag *tag, va_list *ap)
 {
 	void *str;
 
@@ -97,13 +97,15 @@ static void	*ft_show_s_str(t_tag *tag, va_list *ap)
 void			ft_show_s(t_tag *tag, va_list *ap)
 {
 	wchar_t	*str;
-	int 	size;
+	int		size;
 
 	str = ft_show_s_str(tag, ap);
 	if (str == 0 && tag->precision < 6 && tag->precision != -1)
-		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"\0") : (str = (wchar_t*)"\0");
+		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"\0") :
+			(str = (wchar_t*)"\0");
 	else if (str == 0)
-		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"(null)") : (str = (wchar_t*)"(null)");
+		tag->c_swidth[2] == 'l' ? (str = (wchar_t*)L"(null)") :
+			(str = (wchar_t*)"(null)");
 	if (*((char*)str) == 0)
 		tag->precision = 0;
 	size = ft_custom_str_size(tag, str);

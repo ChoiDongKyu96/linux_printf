@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_show_xX.c                                        :+:      :+:    :+:   */
+/*   ft_show_xX.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 15:15:42 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/07 16:03:16 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:15:13 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	ft_show_xX_whatput(t_tag *tag, unsigned long long value)
 		ft_putbasei_std((unsigned int)value, base, 16);
 }
 
-static void	ft_show_xX_width(t_tag *tag, unsigned long long value,
- int n_z, int n_s)
+static void	ft_show_xX_width(t_tag *tag,
+		unsigned long long value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -60,7 +60,8 @@ static void	ft_show_xX_width(t_tag *tag, unsigned long long value,
 	}
 }
 
-static void	ft_show_xX_cal_zs(t_tag *tag, unsigned long long value, int size, int cal)
+static void					ft_show_xX_cal_zs(t_tag *tag,
+		unsigned long long value, int size, int cal)
 {
 	int	n_z;
 	int	n_s;
@@ -69,7 +70,7 @@ static void	ft_show_xX_cal_zs(t_tag *tag, unsigned long long value, int size, in
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size + cal;
 	else if (tag->width > tag->precision)
 	{
@@ -105,7 +106,7 @@ static unsigned long long	ft_show_xX_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void	ft_show_xX(t_tag *tag, va_list *ap)
+void						ft_show_xX(t_tag *tag, va_list *ap)
 {
 	int			size;
 	unsigned long long	value;
@@ -117,7 +118,7 @@ void	ft_show_xX(t_tag *tag, va_list *ap)
 	if (tag->c_flags[2] == '#' && value != 0)
 	{
 		size += 2;
-		cal += 2;;
+		cal += 2;
 	}
 	if (tag->width <= size && tag->precision <= size)
 	{

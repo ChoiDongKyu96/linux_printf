@@ -6,13 +6,14 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 16:41:52 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:46:21 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:04:56 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void					ft_show_o_whatput(t_tag *tag, unsigned long long value)
+static void					ft_show_o_whatput(t_tag *tag,
+		unsigned long long value)
 {
 	const char *base;
 
@@ -29,7 +30,8 @@ static void					ft_show_o_whatput(t_tag *tag, unsigned long long value)
 		ft_putbasei_std((unsigned int)value, base, 8);
 }
 
-static void					ft_show_o_width(t_tag *tag, unsigned long long value,
+static void					ft_show_o_width(t_tag *tag,
+		unsigned long long value,
 		int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
@@ -58,8 +60,8 @@ static void					ft_show_o_width(t_tag *tag, unsigned long long value,
 	}
 }
 
-static void					ft_show_o_cal_zs(t_tag *tag, unsigned long long value,
-		int size, int cal)
+static void					ft_show_o_cal_zs(t_tag *tag,
+		unsigned long long value, int size, int cal)
 {
 	int	n_z;
 	int	n_s;
@@ -106,9 +108,9 @@ static unsigned long long	ft_show_o_value(t_tag *tag, va_list *ap)
 
 void						ft_show_o(t_tag *tag, va_list *ap)
 {
-	int			size;
+	int					size;
 	unsigned long long	value;
-	int			cal;
+	int					cal;
 
 	cal = 0;
 	value = ft_show_o_value(tag, ap);

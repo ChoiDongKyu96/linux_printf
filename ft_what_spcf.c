@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 04:13:38 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/13 22:18:56 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:11:54 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_is_spcf_width(t_tag *tag)
 	}
 }
 
-static void ft_show_per(t_tag *tag)
+static void	ft_show_per(t_tag *tag)
 {
 	write(1, "%", 1);
 	tag->size++;
@@ -48,7 +48,7 @@ void		ft_what_spcf(t_tag *tag, va_list *ap, unsigned int spc)
 	else if (spc == 5)
 		ft_show_u(tag, ap);
 	else if (spc == 6 || spc == 7)
-		ft_show_xX(tag, ap);
+		ft_show_xx(tag, ap);
 	else if (spc == 8)
 		ft_show_per(tag);
 	else if (spc == 9)

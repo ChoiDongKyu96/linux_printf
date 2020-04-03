@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:42:22 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:56:03 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:05:24 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ static unsigned long int	ft_show_p_value(t_tag *tag, va_list *ap)
 
 void						ft_show_p(t_tag *tag, va_list *ap)
 {
-	int			size;
+	int					size;
 	unsigned long int	value;
-	int			cal;
+	int					cal;
 
 	cal = 0;
 	value = ft_show_p_value(tag, ap);

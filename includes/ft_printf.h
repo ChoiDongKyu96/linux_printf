@@ -53,7 +53,7 @@ int		ft_custom_size(long long value, long long base);
 void	ft_show_c(t_tag *tag, va_list *ap);
 void	ft_show_s(t_tag *tag, va_list *ap);
 void	ft_show_u(t_tag *tag, va_list *ap);
-void	ft_show_xX(t_tag *tag, va_list *ap);
+void	ft_show_xx(t_tag *tag, va_list *ap);
 void	ft_show_o(t_tag *tag, va_list *ap);
 void	ft_show_f(t_tag *tag, va_list *ap);
 void	ft_show_p(t_tag *tag, va_list *ap);
