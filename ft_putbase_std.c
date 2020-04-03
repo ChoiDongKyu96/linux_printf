@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 15:34:57 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:38:30 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:48:10 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		ft_putbasei_std(unsigned int n, const char *base,
 }
 
 static void	ft_putbasell_dfs_out(unsigned long long n,
-		const char *base, unsigned long long  n_base)
+		const char *base, unsigned long long n_base)
 {
 	char			c;
 	unsigned int	i;

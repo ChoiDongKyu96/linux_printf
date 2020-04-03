@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:47:49 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:40:32 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:48:19 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		ft_show_c_whatput(t_tag *tag, wint_t value)
 	else
 	{
 		ivalue = (int)value;
-		write(1, &ivalue , 1);
+		write(1, &ivalue, 1);
 	}
 }
 

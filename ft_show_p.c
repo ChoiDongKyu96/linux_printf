@@ -6,13 +6,13 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:42:22 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:42:45 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:49:17 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_p_whatput(t_tag *tag, unsigned long int value)
+static void					ft_show_p_whatput(t_tag *tag, unsigned long int value)
 {
 	const char *base;
 
@@ -21,8 +21,8 @@ static void	ft_show_p_whatput(t_tag *tag, unsigned long int value)
 	ft_putbasell_std((unsigned long int)value, base, 16);
 }
 
-static void	ft_show_p_width(t_tag *tag, unsigned long int value,
-		int n_z, int n_s)
+static void					ft_show_p_width(t_tag *tag,
+		unsigned long int value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -44,8 +44,8 @@ static void	ft_show_p_width(t_tag *tag, unsigned long int value,
 	}
 }
 
-static void					ft_show_p_cal_zs(t_tag *tag, unsigned long int value,
-		int size, int cal)
+static void					ft_show_p_cal_zs(t_tag *tag,
+		unsigned long int value,int size, int cal)
 {
 	int	n_z;
 	int	n_s;

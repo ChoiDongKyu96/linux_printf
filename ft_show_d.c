@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 04:19:40 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:43:48 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 20:49:38 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void			ft_show_d_whatput(t_tag *tag, long long value)
 		ft_putuint_std((int)value);
 }
 
-static void			ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
+static void			ft_show_d_width(t_tag *tag,
+		long long value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -55,7 +56,8 @@ static void			ft_show_d_width(t_tag *tag, long long value, int n_z, int n_s)
 	}
 }
 
-static void			ft_show_d_cal_zs(t_tag *tag, long long value, int size, int cal)
+static void			ft_show_d_cal_zs(t_tag *tag,
+		long long value, int size, int cal)
 {
 	int	n_z;
 	int	n_s;
