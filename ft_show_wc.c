@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 19:21:10 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/09 21:13:01 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/03 21:03:01 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 **
 ** put[0][1]	11000001 10000000
 ** UTF-8
-** U-00000000 - U-0000007F:  0xxxxxxx (1바이트 : 대부분의 영문자)
+** U-00000000 - U-0000007F:  0xxxxxxx (1byte : ENG)
 ** U-00000080 - U-000007FF:  110xxxxx 10xxxxxx
-** U-00000800 - U-0000FFFF:  1110xxxx 10xxxxxx 10xxxxxx (3바이트 : 한글)
+** U-00000800 - U-0000FFFF:  1110xxxx 10xxxxxx 10xxxxxx (3 bytes : KOR)
 ** U-00010000 - U-001FFFFF:  11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 ** U-00200000 - U-03FFFFFF:  111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
 ** U-04000000 - U-7FFFFFFF:  1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
