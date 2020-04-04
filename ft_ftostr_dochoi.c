@@ -6,10 +6,9 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 14:51:23 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/13 22:26:49 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 20:56:20 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 #include "libft.h"
@@ -41,7 +40,7 @@ void	ft_ftostr_dochoi_e(char *str_demical, t_tag *tag)
 	}
 }
 
-int		ft_ftostr_dochoi_g_pre_cal_f(char	*str_demcial)
+int		ft_ftostr_dochoi_g_pre_cal_f(char *str_demcial)
 {
 	int	i;
 	int	size;
@@ -49,12 +48,12 @@ int		ft_ftostr_dochoi_g_pre_cal_f(char	*str_demcial)
 
 	size = 15;
 	i = 0;
-	while(str_demcial[i] != '.')
+	while (str_demcial[i] != '.')
 		i++;
 	i++;
 	base = i;
 	i = i + 14;
-	while(i >= base)
+	while (i >= base)
 	{
 		if (str_demcial[i] != '0')
 			break ;
@@ -64,7 +63,7 @@ int		ft_ftostr_dochoi_g_pre_cal_f(char	*str_demcial)
 	return (size);
 }
 
-int		ft_ftostr_dochoi_g_pre_cal_e(char	*str_demcial)
+int		ft_ftostr_dochoi_g_pre_cal_e(char *str_demcial)
 {
 	int	i;
 	int	size;
@@ -72,13 +71,13 @@ int		ft_ftostr_dochoi_g_pre_cal_e(char	*str_demcial)
 
 	size = 15;
 	i = 0;
-	while(str_demcial[i] != '0')
+	while (str_demcial[i] != '0')
 		i++;
 	base = i;
 	i = i + 14;
-	while(i >= base)
+	while (i >= base)
 	{
-		if ( str_demcial[i] == '.')
+		if (str_demcial[i] == '.')
 			continue;
 		if (str_demcial[i] != '0')
 			break ;
@@ -93,7 +92,7 @@ void	ft_ftostr_dochoi_g(char *str_demical, t_tag *tag)
 	char		base_binary[52];
 	int			dot_idx;
 	int			b_idx;
-	int 		n;
+	int			n;
 
 	dot_idx = 1100;
 	tag->precision < 0 ? (tag->precision = 6) : 0;

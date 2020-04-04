@@ -6,10 +6,9 @@
 /*   By: dochoi <dochoi@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 20:37:17 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/04 20:37:23 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 20:55:42 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 #include "libft.h"
@@ -70,9 +69,10 @@ void	ft_put_f_dochoi_enumber(int base_dot, int dot_idx)
 {
 	unsigned int n;
 
-	n = (unsigned int)((base_dot - dot_idx > 0 ? (base_dot - dot_idx) : (-base_dot + dot_idx)));
+	n = (unsigned int)((base_dot - dot_idx > 0 ?
+				(base_dot - dot_idx) : (-base_dot + dot_idx)));
 	write(1, "e", 1);
-	(base_dot - dot_idx > 0 ? (write(1, "-", 1))  : (write(1, "+", 1)));
+	(base_dot - dot_idx > 0 ? (write(1, "-", 1)) : (write(1, "+", 1)));
 	if (n < 10)
 		write(1, "0", 1);
 	ft_putuint_std(n);
@@ -85,11 +85,12 @@ void	ft_put_f_dochoi_e(char *str_demical, t_tag *tag, int dot_idx)
 	int	base_dot;
 
 	if (tag->t_udouble.parts.exponent == 2047ULL)
-		if (tag->t_udouble.parts.mantisa == 2251799813685248ULL || tag->t_udouble.parts.mantisa == 0)
-			{
-				ft_put_nan_inf(tag);
-				return ;
-			}
+		if (tag->t_udouble.parts.mantisa == 2251799813685248ULL
+				|| tag->t_udouble.parts.mantisa == 0)
+		{
+			ft_put_nan_inf(tag);
+			return ;
+		}
 	i = 0;
 	precision = tag->precision;
 	while (str_demical[i] == '0' && i < 1101)
@@ -97,7 +98,7 @@ void	ft_put_f_dochoi_e(char *str_demical, t_tag *tag, int dot_idx)
 	while (str_demical[i] != '.')
 		write(1, &str_demical[i++], 1);
 	base_dot = i;
-	if (precision > 0 || tag->c_flags[2] =='#')
+	if (precision > 0 || tag->c_flags[2] == '#')
 		write(1, &str_demical[i++], 1);
 	if (precision > 0)
 		while (precision--)
@@ -105,7 +106,8 @@ void	ft_put_f_dochoi_e(char *str_demical, t_tag *tag, int dot_idx)
 	ft_put_f_dochoi_enumber(base_dot, dot_idx);
 }
 
-void	ft_put_f_width_dochoi_e(char *str_demical, t_tag *tag, int dot_idx, int size)
+void	ft_put_f_width_dochoi_e(char *str_demical,
+		t_tag *tag, int dot_idx, int size)
 {
 	char	c;
 	int		w_size;
@@ -118,14 +120,14 @@ void	ft_put_f_width_dochoi_e(char *str_demical, t_tag *tag, int dot_idx, int siz
 	{
 		ft_show_plusorspace_f(tag);
 		ft_put_f_dochoi(str_demical, tag, dot_idx);
-		while(w_size--)
+		while (w_size--)
 			write(1, " ", 1);
 	}
 	else
 	{
 		if (tag->c_flags[1] == '0')
 			ft_show_plusorspace_f(tag);
-		while(w_size--)
+		while (w_size--)
 			write(1, &c, 1);
 		if (tag->c_flags[1] != '0')
 			ft_show_plusorspace_f(tag);

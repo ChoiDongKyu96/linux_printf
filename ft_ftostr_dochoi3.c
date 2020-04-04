@@ -6,10 +6,9 @@
 /*   By: dochoi <dochoi@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/04 20:37:02 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/04 20:37:07 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 20:40:56 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 #include "libft.h"
@@ -32,20 +31,21 @@ void	ft_round_bankers(char *str_demical, int idx, int *dot_idx)
 	char	str_temp[1101];
 
 	memset(str_temp, '0', sizeof(str_temp));
-	if (*dot_idx + idx + 1> 1100)
+	if (*dot_idx + idx + 1 > 1100)
 		return ;
-
 	str_temp[*dot_idx + idx + 1] = '5';
 	if (str_demical[*dot_idx + idx + 1] > '5')
 		ft_ftostr_add_two(str_demical, str_temp);
 	else if (str_demical[*dot_idx + idx + 1] == '5')
 	{
-		if (!ft_is_exactly5(str_demical, idx, dot_idx) || (str_demical[*dot_idx + idx] % 2 != 0))
+		if (!ft_is_exactly5(str_demical, idx, dot_idx)
+				|| (str_demical[*dot_idx + idx] % 2 != 0))
 			ft_ftostr_add_two(str_demical, str_temp);
 	}
 }
 
-void	ft_ftostr_parse(char *base_binary, char *str_demical, t_tag *tag, int *dot_idx)
+void	ft_ftostr_parse(char *base_binary,
+		char *str_demical, t_tag *tag, int *dot_idx)
 {
 	int	n_exponent;
 
@@ -85,11 +85,12 @@ int		ft_ftostr_size(char *str_demical, int dot_idx, t_tag *tag)
 
 	sign = tag->t_udouble.parts.sign;
 	if (tag->t_udouble.parts.exponent == 2047ULL)
-		if (tag->t_udouble.parts.mantisa == 2251799813685248ULL || tag->t_udouble.parts.mantisa == 0)
+		if (tag->t_udouble.parts.mantisa == 2251799813685248ULL
+				|| tag->t_udouble.parts.mantisa == 0)
 			return (3 + sign);
 	size = 0;
 	i = 0;
-	while (str_demical[i] == '0' && i != dot_idx -1)
+	while (str_demical[i] == '0' && i != dot_idx - 1)
 		i++;
 	while (i < dot_idx)
 	{
@@ -99,7 +100,7 @@ int		ft_ftostr_size(char *str_demical, int dot_idx, t_tag *tag)
 	if (tag->precision > 0 || (tag->precision == 0 && tag->c_flags[2] == '#'))
 		size++;
 	if (sign == 1 || (tag->c_flags[4] == '+' && sign == 0) ||
-	(tag->c_flags[3] ==' ' && sign == 0))
+	(tag->c_flags[3] == ' ' && sign == 0))
 		sign = 1;
 	return (size + tag->precision + sign);
 }
