@@ -6,13 +6,14 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 03:57:25 by dochoi            #+#    #+#             */
-/*   Updated: 2020/03/08 02:50:38 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 18:37:38 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_show_u_whatput(t_tag *tag, unsigned long long value)
+static void					ft_show_u_whatput(t_tag *tag,
+		unsigned long long value)
 {
 	if (tag->c_swidth[1] == 'h')
 		ft_putuint_std((unsigned char)value);
@@ -26,7 +27,8 @@ static void	ft_show_u_whatput(t_tag *tag, unsigned long long value)
 		ft_putuint_std((unsigned int)value);
 }
 
-static void	ft_show_u_width(t_tag *tag, unsigned long long value, int n_z, int n_s)
+static void					ft_show_u_width(t_tag *tag,
+		unsigned long long value, int n_z, int n_s)
 {
 	if (tag->c_flags[0] == '-')
 	{
@@ -52,7 +54,8 @@ static void	ft_show_u_width(t_tag *tag, unsigned long long value, int n_z, int n
 	}
 }
 
-static void	ft_show_u_cal_zs(t_tag *tag, unsigned long long value, int size)
+static void					ft_show_u_cal_zs(t_tag *tag,
+		unsigned long long value, int size)
 {
 	int	n_z;
 	int	n_s;
@@ -61,7 +64,7 @@ static void	ft_show_u_cal_zs(t_tag *tag, unsigned long long value, int size)
 	n_s = 0;
 	if (size < tag->width && size >= tag->precision)
 		n_s = tag->width - size;
-	else if (size >= tag->width && size  < tag->precision)
+	else if (size >= tag->width && size < tag->precision)
 		n_z = tag->precision - size;
 	else if (tag->width > tag->precision)
 	{
@@ -97,7 +100,7 @@ static unsigned long long	ft_show_u_value(t_tag *tag, va_list *ap)
 	return (value);
 }
 
-void	ft_show_u(t_tag *tag, va_list *ap)
+void						ft_show_u(t_tag *tag, va_list *ap)
 {
 	int					size;
 	unsigned long long	value;
