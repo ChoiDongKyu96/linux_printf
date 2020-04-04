@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:21:06 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/04 18:35:31 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 20:16:05 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,34 @@ void			ft_show_wc(wint_t c, t_tag *tag);
 void			ft_ftostr_dochoi(char *str_demical, t_tag *tag);
 void			ft_ftostr_dochoi_e(char *str_demical, t_tag *tag);
 void			ft_ftostr_dochoi_g(char *str_demical, t_tag *tag);
-void			ft_put_f_width_dochoi_e(char *str_demical,t_tag *tag, int dot_idx, int size);
-void			ft_put_f_dochoi_e(char *str_demical, t_tag *tag, int dot_idx);
+void			ft_put_f_width_dochoi_e(char *str_demical,
+		t_tag *tag, int dot_idx, int size);
+void			ft_put_f_dochoi_e(char *str_demical,
+		t_tag *tag, int dot_idx);
 void			ft_put_f_dochoi_enumber(int base_dot, int dot_idx);
-void			ft_ftostr_set_point_e(char *str_demical, t_tag *tag, int *b_idx);
+void			ft_ftostr_set_point_e(char *str_demical,
+		t_tag *tag, int *b_idx);
 void			ft_ftostr_dochoi(char *str_demical, t_tag *tag);
-int				ft_ftostr_e_size(char *str_demical, int dot_idx, t_tag *tag, int b_idx);
+int				ft_ftostr_e_size(char *str_demical, int dot_idx,
+		t_tag *tag, int b_idx);
 void			ft_show_plusorspace_f(t_tag *tag);
 void			ft_put_nan_inf(t_tag *tag);
 void			ft_put_f_dochoi(char *str_demical, t_tag *tag, int dot_idx);
-void			ft_put_f_width_dochoi(char *str_demical, t_tag *tag, int dot_idx, int size);
+void			ft_put_f_width_dochoi(char *str_demical,
+		t_tag *tag, int dot_idx, int size);
 int				ft_is_exactly5(char *str_demical, int idx, int *dot_idx);
 void			ft_round_bankers(char *str_demical, int idx, int *dot_idx);
-void			ft_ftostr_parse(char *base_binary, char *str_demical, t_tag *tag, int *dot_idx);
+void			ft_ftostr_parse(char *base_binary,
+		char *str_demical, t_tag *tag, int *dot_idx);
 void			ft_ftostr_set_point(char *str_demical, int *dot_idx);
 int				ft_ftostr_size(char *str_demical, int dot_idx, t_tag *tag);
-void			ft_ftostr_parse_binary(char *base_binary, unsigned long long value);
+void			ft_ftostr_parse_binary(char *base_binary,
+		unsigned long long value);
 void			ft_ftostr_add(char *base_add, int n);
 void			ft_ftostr_add_two(char *str_demical, char *base_add);
 void			ft_ftostr_shift(char *str_demical, int *dot_idx);
-void			ft_ftostr_cal_men(char *base_binary, char *str_demical, int *dot_idx);
+void			ft_ftostr_cal_men(char *base_binary,
+		char *str_demical, int *dot_idx);
 int				ft_ftostr_dochoi_g_pre_cal_f(char	*str_demcial);
 int				ft_ftostr_dochoi_g_pre_cal_e(char	*str_demcial);
 
