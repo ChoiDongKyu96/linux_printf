@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 20:37:17 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 19:58:16 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 00:51:55 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 	size_t	i;
 	size_t	srcsize;
 
+	if (dst == 0 || src == 0)
+		return (0);
 	i = 0;
 	srcsize = 0;
 	while (src[srcsize] != '\0')

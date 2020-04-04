@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 15:40:38 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:11:20 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:47:56 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	unsigned int	end;
 	char			*str;
 
+	if (s1 == 0 || set == 0)
+		return (0);
 	init_str(check, set);
 	i = -1;
 	while (s1[++i])

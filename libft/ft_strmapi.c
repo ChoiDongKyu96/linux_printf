@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 23:40:05 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 19:59:18 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:49:43 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 
 	i = 0;
+	if (s == 0 || f == 0)
+		return (0);
 	while (s[i])
 		i++;
-	if (!(str = (char*)malloc(i + 1)) || s == 0 || f == 0)
+	if (!(str = (char*)malloc(i + 1)))
 		return (0);
 	str[i] = '\0';
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 00:31:27 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 19:55:58 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:50:14 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (s == 0)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

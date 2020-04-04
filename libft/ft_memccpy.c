@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 20:29:35 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:10:41 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 00:39:21 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	*ft_memccpy(void *restrict dest,
 	i = 0;
 	while (i < n)
 	{
-		if (((char*)src)[i] == (unsigned char)c)
+		if (((unsigned char*)src)[i] == (unsigned char)c)
 		{
-			((char*)dest)[i] = ((char*)src)[i];
+			((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
 			i++;
-			return ((char*)dest + i);
+			return ((unsigned char*)dest + i);
 		}
-		((char*)dest)[i] = ((char*)src)[i];
+		((unsigned char*)dest)[i] = ((unsigned char*)src)[i];
 		i++;
 	}
 	return (0);

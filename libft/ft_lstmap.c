@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 02:54:53 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 19:57:09 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:33:37 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	startlst = 0;
 	prelst = 0;
-	if (lst == 0 || f == 0 || del == 0)
+	if (lst == 0 || f == 0)
 		return (0);
 	while (lst)
 	{

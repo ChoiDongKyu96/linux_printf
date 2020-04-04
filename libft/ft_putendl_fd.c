@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 00:33:52 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 19:57:32 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:50:34 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (s == 0)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

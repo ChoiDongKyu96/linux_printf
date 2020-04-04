@@ -6,7 +6,7 @@
 /*   By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 19:25:20 by dochoi            #+#    #+#             */
-/*   Updated: 2020/04/03 20:12:17 by dochoi           ###   ########.fr       */
+/*   Updated: 2020/04/04 03:48:59 by dochoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,10 @@ char			**ft_split(char const *s, char c)
 	char			**pptr;
 	unsigned int	p_size;
 
+	if (s == 0)
+		return (0);
 	p_size = pptr_size(s, c);
-	if (!(pptr = (char**)malloc(sizeof(char*) * (p_size + 1))) || s == 0)
+	if (!(pptr = (char**)malloc(sizeof(char*) * (p_size + 1))))
 		return (0);
 	pptr[p_size] = 0;
 	if (!ptr_size(pptr, s, c))
