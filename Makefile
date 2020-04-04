@@ -6,7 +6,7 @@
 #    By: dochoi <dochoi@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/22 23:40:58 by dochoi            #+#    #+#              #
-#    Updated: 2020/04/03 21:17:59 by dochoi           ###   ########.fr        #
+#    Updated: 2020/04/04 20:25:11 by dochoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRC_NAME = ./ft_custom_size.c ./ft_ftostr_dochoi.c ./ft_insert_n.c \
 			./ft_parse_tab.c ./ft_printf.c ./ft_putbase_std.c \
 			./ft_putdecimal_std.c ./ft_show_c.c ./ft_show_d.c ./ft_show_f.c \
 			./ft_show_o.c ./ft_show_p.c ./ft_show_plus_space_hash.c ./ft_show_s.c \
-			./ft_show_u.c ./ft_show_wc.c ./ft_show_xx.c ./ft_what_spcf.c
+			./ft_show_u.c ./ft_show_wc.c ./ft_show_xx.c ./ft_what_spcf.c\
+			./ft_ftostr_dochoi2.c ./ft_ftostr_dochoi3.c\
+			./ft_ftostr_dochoi4.c ./ft_ftostr_dochoi5.c
 LIB_SRC_NAME = ./ft_memset.c ./ft_bzero.c ./ft_memcpy.c ./ft_memccpy.c \
 		./ft_memmove.c ./ft_memchr.c ./ft_memcmp.c ./ft_strlen.c \
 		./ft_strlcpy.c ./ft_strlcat.c ./ft_strchr.c ./ft_strrchr.c \

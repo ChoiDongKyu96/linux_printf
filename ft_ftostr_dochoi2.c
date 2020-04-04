@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ftostr_dochoi2.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dochoi </var/mail/dochoi>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/04 20:33:26 by dochoi            #+#    #+#             */
+/*   Updated: 2020/04/04 20:34:53 by dochoi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-void	ft_ftostr_parse_binary(char *base_binary, unsigned long long value)
+void	ft_ftostr_parse_binary(char *base_binary,
+		unsigned long long value)
 {
 	int		i;
 
