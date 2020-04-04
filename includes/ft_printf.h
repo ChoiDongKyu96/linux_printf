@@ -92,13 +92,4 @@ void			ft_ftostr_cal_men(char *base_binary, char *str_demical, int *dot_idx);
 int				ft_ftostr_dochoi_g_pre_cal_f(char	*str_demcial);
 int				ft_ftostr_dochoi_g_pre_cal_e(char	*str_demcial);
 
-
-
-
-
-
-
-
-
-
 #endif
